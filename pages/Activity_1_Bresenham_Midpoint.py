@@ -54,22 +54,22 @@ def main():
 
     x = st.slider(
         'X1',
-        0, 100)
+        -100, 100, 1)
     st.write('x1: ', x)
 
     y = st.slider(
         'Y1',
-        0, 100)
+        -1-0, 100, 1)
     st.write('y1: ', y)
 
     x2 = st.slider(
         'X2',
-        0, 100)
+        -100, 100, 1)
     st.write('x2: ', x2)
 
     y2 = st.slider(
         'Y2',
-        0, 100)
+        -100, 100, 1)
     st.write('y2: ', y2)
     color = "g." 
     BresenhamLine(x, y, x2, y2, color)
