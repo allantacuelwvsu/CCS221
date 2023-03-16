@@ -50,12 +50,12 @@ def scaling(img_):
     st.pyplot(fig)
 
 def reflection(img_):
-    m_reflection_ = np.float32([[1, 0, 0],
-                                [0, -1, rows],
-                                [0, 0, 1]])
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
+    m_reflection_ = np.float32([[1, 0, 0],
+                                [0, -1, rows],
+                                [0, 0, 1]])
 
     reflected_img_ = cv2.warpPerspective(img_, m_reflection_, (int(cols), int(rows)))
     plt.axis('off')
