@@ -5,7 +5,6 @@ import streamlit as st
 from PIL import Image
 
 fig = plt.figure()
-cols, rows = img_.shape[:2]
 
 def translation(img_, cols, rows):
     m_translation_ = np.float32([[1, 0, 100],
