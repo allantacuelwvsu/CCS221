@@ -140,7 +140,7 @@ def main():
         _rectangle_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_rectangle_) 
         st.pyplot(fig)
-    if (Transformation == "pyramid):
+    if (Transformation == "pyramid"):
         _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_pyramid_)  
         st.pyplot(fig)
