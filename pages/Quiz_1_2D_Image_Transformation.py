@@ -35,9 +35,9 @@ def rotation(img_, xr):
     plt.show()
     st.pyplot(fig)
 
-def scaling(img_):
-    m_scaling_ = np.float32([[1.5, 0, 0],
-                             [0, 1.8, 0],
+def scaling(img_, xs, ys):
+    m_scaling_ = np.float32([[xs, 0, 0],
+                             [0, ys, 0],
                              [0, 0, 1]])
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
@@ -95,11 +95,18 @@ def main():
         st.title("Rotation")
         xr = st.slider(
             'Angle',
-            0.0, 1000.0)
+            0.0, 700.0)
         st.write('Angle: ', xr)
         rotation(image, xr)
     if ('scale' in Transformation):
-        scaling(image)
+        xs = st.slider(
+            'x',
+            0.0, 5.0)
+        st.write('x: ', xs)
+        ys = st.slider(
+            'y', 0.0, 5.0)
+        st.write('y: ', ys)
+        scaling(image, xs, ys)
     if ('shear' in Transformation):
         reflection(image)
     if ('reflection' in Transformation):
