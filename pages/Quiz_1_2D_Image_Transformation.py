@@ -6,9 +6,9 @@ from PIL import Image
 
 fig = plt.figure()
 
-def translation(img_):
-    m_translation_ = np.float32([[1, 0, 100],
-                                 [0, 1, 50],
+def translation(img_, x, y):
+    m_translation_ = np.float32([[1, 0, x],
+                                 [0, 1, y],
                                  [0, 0, 1]])
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
@@ -81,7 +81,16 @@ def main():
     Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
     image_upload = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
     if ('translation' in Transformation):
-        translation(image_upload)
+        st.title("Translation")
+        x = st.slider(
+            'x',
+            0, 100)
+        st.write('x: ', x)
+        y = st.slider(
+            'y',
+            0, 100)
+        st.write('y: ', y)
+        translation(image_upload, x, y)
     if ('rotation' in Transformation):
         rotation(image_upload)
     if ('scale' in Transformation):
