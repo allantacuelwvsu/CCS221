@@ -101,10 +101,10 @@ def main():
     if ('scale' in Transformation):
         xs = st.slider(
             'X',
-            0.0, 5.0, 0.1)
+            0.0, 1.0, 0.1)
         st.write('x: ', xs)
         ys = st.slider(
-            'Y', 0.0, 5.0, 0.1)
+            'Y', 0.0, 1.0, 0.1)
         st.write('y: ', ys)
         scaling(image, xs, ys)
     if ('shear' in Transformation):
