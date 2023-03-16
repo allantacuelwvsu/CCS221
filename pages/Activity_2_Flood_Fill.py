@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import random as rndm
 import streamlit as st
 
+rndm.shuffle(screen)
 
 def isValid(screen, m, n, x, y, prevC, newC):
     if x<0 or x>= m\
