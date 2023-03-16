@@ -165,7 +165,7 @@ def main():
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
     if (Transformation == "cube"):
-        init_shape_ = _cube_(bottom_lower)
+        init_shape_ = _cube_(bottom_lower, side_length = 3)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
         
         if Transform == "rotate":
