@@ -102,10 +102,10 @@ def main():
         st.title("Scale")
         xs = st.slider(
             'X',
-            -1.0, 1.0, 0.1)
+            -1.0, 2.0, 0.1)
         st.write('x: ', xs)
         ys = st.slider(
-            'Y', -1.0, 1.0, 0.1)
+            'Y', -1.0, 2.0, 0.1)
         st.write('y: ', ys)
         scaling(image, xs, ys)
     if ('reflection' in Transformation):
