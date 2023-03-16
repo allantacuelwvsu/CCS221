@@ -9,9 +9,9 @@ def BresenhamLine(x1, y1, x2, y2, color):
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
     gradient = dy/float(dx)
-    x3 = (dx + dy) / 2
-    y3 = (dy + dx) / 2
-
+    x3 = (x2 + x1) / 2
+    y3 = (y2 + y1) / 2
+    plt.plot(x3, y3, marker = "o", markersize = 5, markerfacecolor = "red")
     if gradient > 1:
         dx, dy = dy, dx
         x, y = y, x
@@ -26,7 +26,6 @@ def BresenhamLine(x1, y1, x2, y2, color):
     steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
 
     fig = plt.figure()
-    plt.plot(x3, y3, marker = "o", markersize = 5, markerfacecolor = "red")
     for i in range(0, int(steps + 1)):
         
         if p > 0:
