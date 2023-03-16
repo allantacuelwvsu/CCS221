@@ -165,7 +165,7 @@ def main():
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
     if (Transformation == "cube"):
-        init_shape_ = _cube_(bottom_lower, side_length = 3)
+        _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
         
         if Transform == "rotate":
@@ -174,10 +174,10 @@ def main():
             with tf.compat.v1.Session() as session:
                 object = session.run(rotate_obj(init_shape_, angle))
             
-        if trans == "shear":
-            trans2 = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+        if Transform == "shear":
+            TTransform = st.selectbox('Shear', ('Shear X', 'Shear Y'))
             
-            if trans2 == 'Shear Y':
+            if TTransform == 'Shear Y':
                 st.sidebar.write('Shear Y Controls')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
@@ -186,7 +186,7 @@ def main():
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
-            elif trans2 == 'Shear X':
+            elif TTransform == 'Shear X':
                 st.sidebar.write('Shear X Controls')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
