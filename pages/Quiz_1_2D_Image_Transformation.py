@@ -108,6 +108,9 @@ def main():
             'Y', -1.0, 1.0, 0.1)
         st.write('y: ', ys)
         scaling(image, xs, ys)
+    if ('reflection' in Transformation):
+        st.title("Reflection")
+        reflection(image)
     if ('shear' in Transformation):
         st.title("Shear")
         xd = st.slider(
@@ -115,8 +118,6 @@ def main():
             -1.0, 1.0, 0.0)
         st.write('x', xd)
         shear(image, xd)
-    if ('reflection' in Transformation):
-        reflection(image)
 
 if __name__ == "__main__":
     main()
