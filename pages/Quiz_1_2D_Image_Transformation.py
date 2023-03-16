@@ -6,9 +6,9 @@ from PIL import Image
 
 fig = plt.figure()
 
-def translation(img_, x, y):
-    m_translation_ = np.float32([[1, 0, x],
-                                 [0, 1, y],
+def translation(img_, xt, yt):
+    m_translation_ = np.float32([[1, 0, xt],
+                                 [0, 1, yt],
                                  [0, 0, 1]])
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
@@ -20,7 +20,7 @@ def translation(img_, x, y):
     plt.show()
     st.pyplot(fig)
 
-def rotation(img_, x):
+def rotation(img_, xr):
     x = np.radians(10)
     m_rotation_ = np.float32([[np.cos(angle), -(np.sin(angle)), 0],
                               [np.sin(angle), np.cos(angle), 0],
@@ -82,21 +82,21 @@ def main():
     image_upload = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
     if ('translation' in Transformation):
         st.title("Translation")
-        x = st.slider(
+        xt = st.slider(
             'x',
             0.0, 500.0)
-        st.write('x: ', x)
-        y = st.slider(
+        st.write('x: ', xt)
+        yt = st.slider(
             'y',
             0.0, 500.0)
-        st.write('y: ', y)
-        translation(image_upload, x, y)
+        st.write('y: ', yt)
+        translation(image_upload, xt, yt)
     if ('rotation' in Transformation):
         st.title("Rotation")
-        x = st.slider(
+        xr = st.slider(
             'Angle',
             0.0, 1000)
-        st.write('Angle: ', x)
+        st.write('Angle: ', xr)
         rotation(image_upload, x)
     if ('scale' in Transformation):
         scaling(image_upload)
