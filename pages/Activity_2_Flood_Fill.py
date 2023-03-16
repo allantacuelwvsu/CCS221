@@ -67,7 +67,7 @@ def floodFill(screen,
             screen[posX][posY-1]= newC
             queue.append([posX, posY-1])
             
-abs(screen) = screenold
+screen = screenold
 fig = plt.figure()
 
 plt.rcParams["figure.figsize"] = [8, 7]
