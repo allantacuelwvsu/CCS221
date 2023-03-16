@@ -84,11 +84,11 @@ def main():
         st.title("Translation")
         x = st.slider(
             'x',
-            0.0, 100.0)
+            0.0, 1000.0)
         st.write('x: ', x)
         y = st.slider(
             'y',
-            0.0, 100.0)
+            0.0, 1000.0)
         st.write('y: ', y)
         translation(image_upload, x, y)
     if ('rotation' in Transformation):
