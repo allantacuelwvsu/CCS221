@@ -114,9 +114,9 @@ def main():
             'X',
             0.0, 0.1)
         st.write('x', xd)
-        reflection(image, xd)
+        shear(image, xd)
     if ('reflection' in Transformation):
-            shear(image)
+        reflection(image)
 
 if __name__ == "__main__":
     main()
