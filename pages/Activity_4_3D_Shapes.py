@@ -24,7 +24,7 @@ def _plt_basic_object_(points):
     ax.set_zlim3d(-6.5, 6.5)
     plt.show()
 
-def _cube_(bottom_lower = (0, 0, 0), side_length = 3):
+def _cube_(bottom_lower, side_length = 3):
 
     """Create cube starting from the given bottom-lower point (lowest x, y, z values)"""
     bottom_lower = np.array(bottom_lower)
@@ -43,7 +43,7 @@ def _cube_(bottom_lower = (0, 0, 0), side_length = 3):
 
     return points
 
-def _prism_(bottom_lower = (0, 0, 0), side_length = 3):
+def _prism_(bottom_lower, side_length = 3):
 
     """Create cube starting from the given bottom-lower point (lowest x, y, z values)"""
     bottom_lower = np.array(bottom_lower)
@@ -62,7 +62,7 @@ def _prism_(bottom_lower = (0, 0, 0), side_length = 3):
 
     return points
     
-def _rectangle_(bottom_lower = (0, 0, 0), side_length = 3):
+def _rectangle_(bottom_lower, side_length = 3):
 
     """Create cube starting from the given bottom-lower point (lowest x, y, z values)"""
     bottom_lower = np.array(bottom_lower)
@@ -81,7 +81,7 @@ def _rectangle_(bottom_lower = (0, 0, 0), side_length = 3):
 
     return points
 
-def _pyramid_(bottom_lower = (0, 0, 0), side_length = 3):
+def _pyramid_(bottom_lower, side_length = 3):
 
     """Create cube starting from the given bottom-lower point (lowest x, y, z values)"""
     bottom_lower = np.array(bottom_lower)
@@ -98,7 +98,7 @@ def _pyramid_(bottom_lower = (0, 0, 0), side_length = 3):
 
     return points
 
-def _diamond_(bottom_lower = (0, 0, 0), side_length = 3):
+def _diamond_(bottom_lower, side_length = 3):
 
     """Create cube starting from the given bottom-lower point (lowest x, y, z values)"""
     bottom_lower = np.array(bottom_lower)
@@ -154,18 +154,19 @@ def shear_obj_x(points, xold, xnew, zold, znew):
     return shear_object
 
 def main():
-    init_cube_ = _cube_(bottom_lower = (0, 0, 0), side_length = 3)
-    init_prism_ = _prism_(bottom_lower = (0, 0, 0), side_length = 3)
-    init_rectangle_ = _rectangle_(bottom_lower = (0, 0, 0), side_length = 3)
-    init_pyramid_ = _pyramid_(bottom_lower = (0, 0, 0), side_length = 3)
-    init_diamond_ = _diamond_(bottom_lower = (0, 0, 0), side_length = 3)
+    bottom_lower = (0, 0, 0)
+    init_cube_ = _cube_(bottom_lower, side_length = 3)
+    init_prism_ = _prism_(bottom_lower, side_length = 3)
+    init_rectangle_ = _rectangle_(bottom_lower, side_length = 3)
+    init_pyramid_ = _pyramid_(bottom_lower, side_length = 3)
+    init_diamond_ = _diamond_(bottom_lower, side_length = 3)
     points = tf.constant(init_cube_, dtype = tf.float32)
     
     
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
     if (Transformation == "cube"):
-        _cube_(bottom_lower = (0, 0, 0), side_length = 5)
+        _cube_(bottom_lower, side_length = 5)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
         
         if Transform == "rotate":
@@ -196,19 +197,19 @@ def main():
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
             
     if (Transformation == "prism"):
-        _prism_(bottom_lower = (0, 0, 0), side_length = 5)
+        _prism_(bottom_lower, side_length = 5)
         _plt_basic_object_(init_prism_)
         st.pyplot(fig)
     if (Transformation == "rectangle"):
-        _rectangle_(bottom_lower = (0, 0, 0), side_length = 5)
+        _rectangle_(bottom_lower, side_length = 5)
         _plt_basic_object_(init_rectangle_) 
         st.pyplot(fig)
     if (Transformation == "pyramid"):
-        _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
+        _pyramid_(bottom_lower, side_length = 5)
         _plt_basic_object_(init_pyramid_)  
         st.pyplot(fig)
     if (Transformation == "diamond"):
-        _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
+        _diamond_(bottom_lower, side_length = 5)
         _plt_basic_object_(init_diamond_)
         st.pyplot(fig)
         
