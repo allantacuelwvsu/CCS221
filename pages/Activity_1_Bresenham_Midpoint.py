@@ -9,8 +9,8 @@ def BresenhamLine(x1, y1, x2, y2, color):
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
     gradient = dy/float(dx)
-    x3 = (dx + x1) / 2
-    y3 = (dy + y1) / 2
+    x3 = (dx + dx) / 2
+    y3 = (dy + dy) / 2
 
     if gradient > 1:
         dx, dy = dy, dx
