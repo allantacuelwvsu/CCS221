@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from PIL import Image
 
+fig = plt.figure()
 img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
 cols, rows = img_.shape[:2]
 
@@ -25,8 +26,7 @@ m_shearing_x = np.float32([[1, 0.5, 0],
                            [0, 0, 1]])
 
 def translation(img_, cols, rows):
-    for i in range(1, 6):
-        img_ = cv2.imread(str(i) + jpg)
+        img_ = Image.open(img_)
         img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
@@ -36,8 +36,7 @@ def translation(img_, cols, rows):
         plt.show()
 
 def rotation(img_, cols, rows):
-    for i in range(1, 6):
-        img_ = cv2.imread(str(i) + jpg)
+        img_ = Image.open(img_)
         img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
@@ -47,8 +46,7 @@ def rotation(img_, cols, rows):
         plt.show()
 
 def scaling(img_, cols, rows):
-    for i in range(1, 6):
-        img_ = cv2.imread(str(i) + jpg)
+        img_ = Image.open(img_)
         img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
@@ -58,8 +56,7 @@ def scaling(img_, cols, rows):
         plt.show()
 
 def reflection(img_, cols, rows):
-    for i in range(1, 6):
-        img_ = cv2.imread(str(i) + jpg)
+        img_ = Image.open(img_)
         img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
@@ -69,8 +66,7 @@ def reflection(img_, cols, rows):
         plt.show()    
 
 def shear(img_, cols, rows):
-    for i in range(1, 6):
-        img_ = cv2.imread(str(i) + jpg)
+        img_ = Image.open(img_)
         img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
@@ -80,11 +76,18 @@ def shear(img_, cols, rows):
         plt.show()
 
 def main():
+    Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
+    image_upload = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)
     
+    if ('translation' in Transformation):
         translation(img_, cols, rows)
+    if ('rotation' in Transformation):
         rotation(img_, cols, rows)
+    if ('scale' in Transformation):
         scaling(img_, cols, rows)
+    if ('shear' in Transformation):
         reflection(img_, cols, rows)
+    if ('reflection' in Transformation):
         shear(img_, cols, rows)
 
 if __name__ == "__main__":
