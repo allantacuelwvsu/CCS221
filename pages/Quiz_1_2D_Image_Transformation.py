@@ -95,7 +95,7 @@ def main():
         st.title("Rotation")
         xr = st.slider(
             'Angle',
-            0.0, 1000)
+            0.0, 1000.0)
         st.write('Angle: ', xr)
         rotation(image_upload, x)
     if ('scale' in Transformation):
