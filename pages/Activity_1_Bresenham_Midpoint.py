@@ -11,6 +11,9 @@ def BresenhamLine(x1, y1, x2, y2, color):
     gradient = dy/float(dx)
     x3 = (x2 + x1) / 2
     y3 = (y2 + y1) / 2
+    if y2 > x2 or y1 > x1:
+        x3 = y3
+        y3 = x3
     fig = plt.figure()
     plt.plot(x3, y3, marker = "o", markersize = 5, markerfacecolor = "red")
     if gradient > 1:
