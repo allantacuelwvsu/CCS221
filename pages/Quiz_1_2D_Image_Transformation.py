@@ -27,7 +27,6 @@ m_shearing_x = np.float32([[1, 0.5, 0],
 
 def translation(img_, cols, rows):
         img_ = Image.open(img_)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
         translated_img_ = cv2.warpPerspective(img_, m_translation_, (cols, rows))
@@ -37,7 +36,6 @@ def translation(img_, cols, rows):
 
 def rotation(img_, cols, rows):
         img_ = Image.open(img_)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
         rotated_img_ = cv2.warpPerspective(img_, m_rotation_, (int(cols), int(rows)))
@@ -47,7 +45,6 @@ def rotation(img_, cols, rows):
 
 def scaling(img_, cols, rows):
         img_ = Image.open(img_)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
         scaled_img_ = cv2.warpPerspective(img_, m_scaling_, (cols*2, rows*2))
@@ -57,7 +54,6 @@ def scaling(img_, cols, rows):
 
 def reflection(img_, cols, rows):
         img_ = Image.open(img_)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
         reflected_img_ = cv2.warpPerspective(img_, m_reflection_, (int(cols), int(rows)))
@@ -67,7 +63,6 @@ def reflection(img_, cols, rows):
 
 def shear(img_, cols, rows):
         img_ = Image.open(img_)
-        img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
         cols, rows = img_.shape[:2]
 
         sheared_img_x = cv2.warpPerspective(img_, m_shearing_x, (int(cols*1.5), int(rows*1.5)))
