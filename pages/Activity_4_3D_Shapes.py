@@ -148,6 +148,8 @@ def main():
         _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_diamond_)
         st.pyplot(fig)
+        
+    _plt_basic_object_(object)
     
 if __name__ == '__main__':
     main()
