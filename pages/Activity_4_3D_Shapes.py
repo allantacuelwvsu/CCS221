@@ -187,7 +187,7 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
-        st.pyplot(fig)
+
             
     elif (Transformation == "prism"):
         init_shape_ = _prism_(bottom_lower, side_length = 5)
@@ -219,6 +219,7 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
+                    
     elif (Transformation == "rectangle"):
         init_shape_ = _rectangle_(bottom_lower, side_length = 5)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
@@ -249,7 +250,7 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
-        st.pyplot(fig)
+
     elif (Transformation == "pyramid"):
         init_shape_ = _pyramid_(bottom_lower, side_length = 5)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
@@ -280,7 +281,7 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
-        st.pyplot(fig)
+
     elif (Transformation == "diamond"):
         init_shape_ = _diamond_(bottom_lower, side_length = 5)
         Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
@@ -311,7 +312,6 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
-        st.pyplot(fig)
         
     _plt_basic_object_(object)
     
