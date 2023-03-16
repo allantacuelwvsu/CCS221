@@ -20,8 +20,8 @@ def translation(img_, x, y):
     plt.show()
     st.pyplot(fig)
 
-def rotation(img_):
-    angle = np.radians(10)
+def rotation(img_, x):
+    x = np.radians(10)
     m_rotation_ = np.float32([[np.cos(angle), -(np.sin(angle)), 0],
                               [np.sin(angle), np.cos(angle), 0],
                               [0, 0, 1]])
@@ -92,7 +92,11 @@ def main():
         st.write('y: ', y)
         translation(image_upload, x, y)
     if ('rotation' in Transformation):
-        rotation(image_upload)
+        st.title("Rotation")
+        x = st.slider(
+            'Angle',
+            0.0, 1000)
+        rotation(image_upload, x)
     if ('scale' in Transformation):
         scaling(image_upload)
     if ('shear' in Transformation):
