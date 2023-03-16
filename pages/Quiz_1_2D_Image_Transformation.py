@@ -17,6 +17,7 @@ def translation(img_, cols, rows):
     plt.axis('off')
     plt.imshow(translated_img_)
     plt.show()
+    st.pyplot(fig)
 
 def rotation(img_, cols, rows):
     angle = np.radians(10)
@@ -30,6 +31,7 @@ def rotation(img_, cols, rows):
     plt.axis('off')
     plt.imshow(rotated_img_)
     plt.show()
+    st.pyplot(fig)
 
 def scaling(img_, cols, rows):
     m_scaling_ = np.float32([[1.5, 0, 0],
@@ -42,6 +44,7 @@ def scaling(img_, cols, rows):
     plt.axis('off')
     plt.imshow(scaled_img_)
     plt.show()
+    st.pyplot(fig)
 
 def reflection(img_, cols, rows):
     m_reflection_ = np.float32([[1, 0, 0],
@@ -54,6 +57,7 @@ def reflection(img_, cols, rows):
     plt.axis('off')
     plt.imshow(reflected_img_)
     plt.show()    
+    st.pyplot(fig)
 
 def shear(img_, cols, rows):
     m_shearing_x = np.float32([[1, 0.5, 0],
@@ -66,6 +70,7 @@ def shear(img_, cols, rows):
     plt.axis('off')
     plt.imshow(sheared_img_x)
     plt.show()
+    st.pyplot(fig)
 
 def main():
     Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
