@@ -123,6 +123,8 @@ def main():
     
     
     choice = (int(input("Which shape do you like to make? [Input 1 for cube, 2 for prism, 3 for rectangle, 4 for pyramid, 5 for diamond, >6 or <1 for error]: ")))
+    
+    
     if (choice == 1):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
