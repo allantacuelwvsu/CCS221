@@ -124,7 +124,7 @@ def main():
     points = tf.constant(init_cube_, dtype = tf.float32)
     
     
-    Transformation = st.select_slider('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
+    Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
     if ('cube' in Transformation):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
