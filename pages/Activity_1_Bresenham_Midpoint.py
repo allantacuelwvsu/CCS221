@@ -5,14 +5,12 @@ import matplotlib.pyplot as plt
 st.title("Activity\t1\nGroup\t8\tBYTE\nBresenham\tMidpoint")
 
 def BresenhamLine(x1, y1, x2, y2, color):
-    xr1, yr1 = x1, y1
-    xr2, yr2 = x2, y2
     x, y = x1, y1
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
     gradient = dy/float(dx)
-    x3 = (xr2 + xr1) / 2
-    y3 = (yr2 + yr1) / 2
+    x3 = (x2 + x1) / dx
+    y3 = (y2 + y1) / dy
 
     if gradient > 1:
         dx, dy = dy, dx
