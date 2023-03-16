@@ -5,7 +5,6 @@ import streamlit as st
 from PIL import Image
 
 fig = plt.figure()
-img_ = cv2.cvtColor(img_, cv2.COLOR_BGR2RGB)
 cols, rows = img_.shape[:2]
 
 def translation(img_, cols, rows):
