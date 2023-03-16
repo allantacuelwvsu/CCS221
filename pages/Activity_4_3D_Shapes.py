@@ -7,8 +7,6 @@ from scipy.spatial import Delaunay
 import tensorflow as tf
 import streamlit as st
 
-fig = plt.figure()
-
 def _plt_basic_object_(points):
     """Plots a basic object, assuming its convex and not too complex"""
     fig = plt.figure()
@@ -23,6 +21,7 @@ def _plt_basic_object_(points):
     ax.set_ylim3d(-6.5, 6.5)
     ax.set_zlim3d(-6.5, 6.5)
     plt.show()
+    st.pyplot(fig)
 
 def _cube_(bottom_lower, side_length = 3):
 
