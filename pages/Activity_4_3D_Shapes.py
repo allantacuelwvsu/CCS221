@@ -195,22 +195,130 @@ def main():
                 xnew = st.slider('X New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
+        st.pyplot(fig)
             
-    if (Transformation == "prism"):
-        _prism_(bottom_lower, side_length = 5)
-        _plt_basic_object_(init_prism_)
+    elif (Transformation == "prism"):
+        init_shape_ = _prism_(bottom_lower, side_length = 5)
+        Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
+        
+        if Transform == "rotate":
+            st.write('Rotation Control')
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if Transform == "shear":
+            TTransform = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+            
+            if TTransform == 'Shear Y':
+                st.sidebar.write('Shear Y Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif TTransform == 'Shear X':
+                st.sidebar.write('Shear X Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
+    elif (Transformation == "rectangle"):
+        init_shape_ = _rectangle_(bottom_lower, side_length = 5)
+        Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
+        
+        if Transform == "rotate":
+            st.write('Rotation Control')
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if Transform == "shear":
+            TTransform = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+            
+            if TTransform == 'Shear Y':
+                st.sidebar.write('Shear Y Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif TTransform == 'Shear X':
+                st.sidebar.write('Shear X Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
         st.pyplot(fig)
-    if (Transformation == "rectangle"):
-        _rectangle_(bottom_lower, side_length = 5)
-        _plt_basic_object_(init_rectangle_) 
+    elif (Transformation == "pyramid"):
+        init_shape_ = _pyramid_(bottom_lower, side_length = 5)
+        Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
+        
+        if Transform == "rotate":
+            st.write('Rotation Control')
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if Transform == "shear":
+            TTransform = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+            
+            if TTransform == 'Shear Y':
+                st.sidebar.write('Shear Y Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif TTransform == 'Shear X':
+                st.sidebar.write('Shear X Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
         st.pyplot(fig)
-    if (Transformation == "pyramid"):
-        _pyramid_(bottom_lower, side_length = 5)
-        _plt_basic_object_(init_pyramid_)  
-        st.pyplot(fig)
-    if (Transformation == "diamond"):
-        _diamond_(bottom_lower, side_length = 5)
-        _plt_basic_object_(init_diamond_)
+    elif (Transformation == "diamond"):
+        init_shape_ = _diamond_(bottom_lower, side_length = 5)
+        Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
+        
+        if Transform == "rotate":
+            st.write('Rotation Control')
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if Transform == "shear":
+            TTransform = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+            
+            if TTransform == 'Shear Y':
+                st.sidebar.write('Shear Y Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif TTransform == 'Shear X':
+                st.sidebar.write('Shear X Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
         st.pyplot(fig)
         
     _plt_basic_object_(object)
