@@ -78,8 +78,8 @@ def shear(img_, xd):
     st.pyplot(fig)
 
 def main():
-    Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
-    image = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
+    Transformation = st.multiselect('Transformation Type:', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
+    image = st.file_uploader('Drop Image to Transform', ['jpg'], accept_multiple_files=False)   
     if ('translation' in Transformation):
         st.title("Translation")
         xt = st.slider(
