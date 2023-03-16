@@ -84,28 +84,28 @@ def main():
         st.title("Translation")
         xt = st.slider(
             'X',
-            0.0, 500.0)
+            -500.0, 500.0, 0.0)
         st.write('x: ', xt)
         yt = st.slider(
             'Y',
-            0.0, 500.0)
+            -250.0, 250.0, 0.0)
         st.write('y: ', yt)
         translation(image, xt, yt)
     if ('rotation' in Transformation):
         st.title("Rotation")
         xr = st.slider(
             'Angle',
-            0.0, 700.0)
+            -250.0, 250.0, 0.0)
         st.write('Angle: ', xr)
         rotation(image, xr)
     if ('scale' in Transformation):
         st.title("Scale")
         xs = st.slider(
             'X',
-            0.0, 1.0, 0.1)
+            -1.0, 1.0, 0.1)
         st.write('x: ', xs)
         ys = st.slider(
-            'Y', 0.0, 1.0, 0.1)
+            'Y', -1.0, 1.0, 0.1)
         st.write('y: ', ys)
         scaling(image, xs, ys)
     if ('shear' in Transformation):
