@@ -97,7 +97,7 @@ def main():
             'Angle',
             0.0, 1000.0)
         st.write('Angle: ', xr)
-        rotation(image_upload, x)
+        rotation(image_upload, xr)
     if ('scale' in Transformation):
         scaling(image_upload)
     if ('shear' in Transformation):
