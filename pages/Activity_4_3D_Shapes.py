@@ -5,6 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from scipy.spatial import Delaunay
 import tensorflow as tf
+import streamlit as st
 
 def _plt_basic_object_(points):
     """Plots a basic object, assuming its convex and not too complex"""
@@ -16,9 +17,9 @@ def _plt_basic_object_(points):
     S = ax.plot_trisurf(points[:,0], points[:,1], points[:,2],
                         triangles=tri,
                         shade = True, cmap = cm.seismic, lw = 0.5)
-    ax.set_xlim3d(-5, 5)
-    ax.set_ylim3d(-5, 5)
-    ax.set_zlim3d(-5, 5)
+    ax.set_xlim3d(-6.5, 6.5)
+    ax.set_ylim3d(-6.5, 6.5)
+    ax.set_zlim3d(-6.5, 6.5)
     plt.show()
 
 def _cube_(bottom_lower = (0, 0, 0), side_length = 3):
