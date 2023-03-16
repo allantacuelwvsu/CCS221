@@ -122,27 +122,23 @@ def main():
     points = tf.constant(init_cube_, dtype = tf.float32)
     
     
-    choice = (int(input("Which shape do you like to make? [Input 1 for cube, 2 for prism, 3 for rectangle, 4 for pyramid, 5 for diamond, >6 or <1 for error]: ")))
+    Transformation = st.multiselect('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
-    
-    if (choice == 1):
+    if ('cube' in Transformation):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
-    elif (choice == 2):
+    if ('prism' in Transformation)
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
-    elif (choice == 3):
+    if ('rectangle' in Transformation):
         _rectangle_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_rectangle_) 
-    elif (choice == 4):
+    if ('pyramid' in Transformation):
         _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_pyramid_)  
-    elif (choice == 5):
+    if ('diamond' in Diamond):
         _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
-        _plt_basic_object_(init_diamond_) 
-    else:
-        print("Error.")
-        exit
+        _plt_basic_object_(init_diamond_)
     
 if __name__ == '__main__':
     main()
