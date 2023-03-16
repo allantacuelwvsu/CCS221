@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 st.title("Activity\t1\nGroup\t8\tBYTE\nBresenham\tMidpoint")
 
 def BresenhamLine(x1, y1, x2, y2, color):
-    abs(xr1, yr1) = x1, y1
-    abs(xr2, yr2) = x2, y2
+    xr1, yr1 = x1, y1
+    xr2, yr2 = x2, y2
     x, y = x1, y1
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
