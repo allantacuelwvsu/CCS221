@@ -7,6 +7,8 @@ from scipy.spatial import Delaunay
 import tensorflow as tf
 import streamlit as st
 
+fig = plt.figure()
+
 def _plt_basic_object_(points):
     """Plots a basic object, assuming its convex and not too complex"""
 
@@ -127,18 +129,23 @@ def main():
     if ('cube' in Transformation):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
+        st.pyplot(fig)
     if ('prism' in Transformation):
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
+        st.pyplot(fig)
     if ('rectangle' in Transformation):
         _rectangle_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_rectangle_) 
+        st.pyplot(fig)
     if ('pyramid' in Transformation):
         _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_pyramid_)  
+        st.pyplot(fig)
     if ('diamond' in Transformation):
         _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_diamond_)
+        st.pyplot(fig)
     
 if __name__ == '__main__':
     main()
