@@ -127,7 +127,7 @@ def main():
     if ('cube' in Transformation):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
-    if ('prism' in Transformation)
+    if ('prism' in Transformation):
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
     if ('rectangle' in Transformation):
@@ -136,7 +136,7 @@ def main():
     if ('pyramid' in Transformation):
         _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_pyramid_)  
-    if ('diamond' in Diamond):
+    if ('diamond' in Transformation):
         _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_diamond_)
     
