@@ -47,8 +47,6 @@ def BresenhamLine(x1, y1, x2, y2, color):
 
 def main():
     st.title("Bresenham Line")
-    x1 = 10
-    x2 = 10
 
     x = st.slider(
         'X1',
