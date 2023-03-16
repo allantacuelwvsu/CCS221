@@ -63,8 +63,8 @@ def reflection(img_):
     plt.show()    
     st.pyplot(fig)
 
-def shear(img_):
-    m_shearing_x = np.float32([[1, 0.5, 0],
+def shear(img_, xd):
+    m_shearing_x = np.float32([[1, xd, 0],
                                [0, 1, 0],
                                [0, 0, 1]])
     img_ = Image.open(img_)
@@ -99,6 +99,7 @@ def main():
         st.write('Angle: ', xr)
         rotation(image, xr)
     if ('scale' in Transformation):
+        st.title("Scale")
         xs = st.slider(
             'X',
             0.0, 1.0, 0.1)
@@ -108,7 +109,12 @@ def main():
         st.write('y: ', ys)
         scaling(image, xs, ys)
     if ('shear' in Transformation):
-        reflection(image)
+        st.title("Shear")
+        xd = st.slider(
+            'X',
+            0.0, 0.1)
+        st.write('x', xd)
+        reflection(image, xd)
     if ('reflection' in Transformation):
             shear(image)
 
