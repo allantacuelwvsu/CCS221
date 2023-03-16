@@ -115,23 +115,86 @@ def _diamond_(bottom_lower = (0, 0, 0), side_length = 3):
 
     return points
 
+def rotate_obj(points, angle):
+    
+    angle = float(angle)
+    rotation_matrix = tf.stack([[tf.cos(angle), tf.sin(angle), 0],
+                                [-tf.sin(angle), tf.cos(angle), 0],
+                                [0, 0, 1]
+                                ])
+
+    return tf.matmul(tf.cast(points, tf.float32), tf.cast(rotation_matrix, tf.float32))
+
+def shear_obj_y(points, yold, ynew, zold, znew):
+    
+    sh_y = tf.multiply(yold, ynew)
+    sh_z = tf.multiply(zold, znew)
+   
+    shear_points = tf.stack([[sh_y, 0, 0],
+                            [sh_z, 1, 0],
+                            [0, 0, 1]
+                            ])
+   
+   
+    shear_object = tf.matmul(tf.cast(points, tf.float32), tf.cast(shear_points, tf.float32))
+    return shear_object
+
+def shear_obj_x(points, xold, xnew, zold, znew):
+    
+    sh_x = tf.multiply(xold, xnew)
+    sh_z = tf.multiply(zold, znew)
+   
+    shear_points = tf.stack([[1, sh_x, 0],
+                            [0, 1, 0],
+                            [0, sh_z, 1]
+                            ])
+   
+   
+    shear_object = tf.matmul(tf.cast(points, tf.float32), tf.cast(shear_points, tf.float32))
+    return shear_object
+
 def main():
-    init_cube_ = _cube_(side_length = 3)
-    init_prism_ = _prism_(side_length = 3)
-    init_rectangle_ = _rectangle_(side_length = 3)
-    init_pyramid_ = _pyramid_(side_length = 3)
-    init_diamond_ = _diamond_(side_length = 3)
+    init_cube_ = _cube_(bottom_lower = (0, 0, 0), side_length = 3)
+    init_prism_ = _prism_(bottom_lower = (0, 0, 0), side_length = 3)
+    init_rectangle_ = _rectangle_(bottom_lower = (0, 0, 0), side_length = 3)
+    init_pyramid_ = _pyramid_(bottom_lower = (0, 0, 0), side_length = 3)
+    init_diamond_ = _diamond_(bottom_lower = (0, 0, 0), side_length = 3)
     points = tf.constant(init_cube_, dtype = tf.float32)
     
     
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
     if (Transformation == "cube"):
-        _cube_(bottom_lower = (0, 0, 0), side_length = 5)
-        _plt_basic_object_(init_cube_)
-        with tf.compat.v1.Session() as session:
-            object = session.run(_cube_(bottom_lower = (0, 0, 0), side_length = 3))
-            st.pyplot(fig)
+        init_shape_ = _cube_(bottom_lower)
+        Transform = st.selectbox('Transformation Type:', ('rotate', 'shear'))
+        
+        if Transform == "rotate":
+            st.write('Rotation Control')
+            angle = st.slider('Rotation Size : ', 0, 1500, 1)
+            with tf.compat.v1.Session() as session:
+                object = session.run(rotate_obj(init_shape_, angle))
+            
+        if trans == "shear":
+            trans2 = st.selectbox('Shear', ('Shear X', 'Shear Y'))
+            
+            if trans2 == 'Shear Y':
+                st.sidebar.write('Shear Y Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
+                    
+            elif trans2 == 'Shear X':
+                st.sidebar.write('Shear X Controls')
+                zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
+                znew = st.slider('Z New:', 0.0, 5.0, 0.001)
+                xold = st.slider('X Old:', 0.0, 5.0, 0.001)
+                xnew = st.slider('X New:', 0.0, 5.0, 0.001)
+                with tf.compat.v1.Session() as session:
+                    object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
+            
     if (Transformation == "prism"):
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
