@@ -155,13 +155,6 @@ def shear_obj_x(points, xold, xnew, zold, znew):
 
 def main():
     bottom_lower = (0, 0, 0)
-    init_cube_ = _cube_(bottom_lower, side_length = 3)
-    init_prism_ = _prism_(bottom_lower, side_length = 3)
-    init_rectangle_ = _rectangle_(bottom_lower, side_length = 3)
-    init_pyramid_ = _pyramid_(bottom_lower, side_length = 3)
-    init_diamond_ = _diamond_(bottom_lower, side_length = 3)
-    points = tf.constant(init_cube_, dtype = tf.float32)
-    
     
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
