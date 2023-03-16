@@ -180,11 +180,11 @@ def main():
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
             elif TTransform == 'x axis':
-                st.sidebar.write('shear on the y axis')
+                st.write('shear on the x axis')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                xold = st.slider('Y Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                xnew = st.slider('Y New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
 
@@ -212,11 +212,11 @@ def main():
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
             elif TTransform == 'x axis':
-                st.sidebar.write('shear on the y axis')
+                st.write('shear on the x axis')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                xold = st.slider('Y Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                xnew = st.slider('Y New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
                     
@@ -243,11 +243,11 @@ def main():
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
             elif TTransform == 'x axis':
-                st.sidebar.write('shear on the y axis')
+                st.write('shear on the x axis')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                xold = st.slider('Y Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                xnew = st.slider('Y New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
 
@@ -274,11 +274,11 @@ def main():
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
             elif TTransform == 'x axis':
-                st.sidebar.write('shear on the y axis')
+                st.write('shear on the x axis')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                xold = st.slider('Y Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                xnew = st.slider('Y New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
 
@@ -305,11 +305,11 @@ def main():
                     object = session.run(shear_obj_y(init_shape_, yold, ynew, zold, znew))
                     
             elif TTransform == 'x axis':
-                st.sidebar.write('shear on the y axis')
+                st.write('shear on the x axis')
                 zold = st.slider('Z Old:', 0.0, 5.0, 0.001)
-                yold = st.slider('Y Old:', 0.0, 5.0, 0.001)
+                xold = st.slider('Y Old:', 0.0, 5.0, 0.001)
                 znew = st.slider('Z New:', 0.0, 5.0, 0.001)
-                ynew = st.slider('Y New:', 0.0, 5.0, 0.001)
+                xnew = st.slider('Y New:', 0.0, 5.0, 0.001)
                 with tf.compat.v1.Session() as session:
                     object = session.run(shear_obj_x(init_shape_, xold, xnew, zold, znew))
         
