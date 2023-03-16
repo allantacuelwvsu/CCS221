@@ -75,7 +75,6 @@ def shear(img_, cols, rows):
 def main():
     Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
     image_upload = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
-    cols, rows = image_upload.shape[:2]
     if ('translation' in Transformation):
         translation(img_, cols, rows)
     if ('rotation' in Transformation):
