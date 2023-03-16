@@ -33,19 +33,19 @@ def main():
 
     x1 = st.slider(
         'x1',
-        0, 100)
+        -100, 100, 1)
 
     y1 = st.slider(
         'y1',
-        0, 100)
+        -100, 100, 1)
 
     x2 = st.slider(
         'x2',
-        0, 100)
+        -100, 100, 1)
 
     y2 = st.slider(
         'y2',
-        0, 100)
+        -100, 100, 1)
     color = "g." 
     DDALine(x1, y1, x2, y2, color)
 
