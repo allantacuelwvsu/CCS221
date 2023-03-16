@@ -83,11 +83,11 @@ def main():
     if ('translation' in Transformation):
         st.title("Translation")
         xt = st.slider(
-            'x',
+            'X',
             0.0, 500.0)
         st.write('x: ', xt)
         yt = st.slider(
-            'y',
+            'Y',
             0.0, 500.0)
         st.write('y: ', yt)
         translation(image, xt, yt)
@@ -100,11 +100,11 @@ def main():
         rotation(image, xr)
     if ('scale' in Transformation):
         xs = st.slider(
-            'x',
+            'X',
             0.0, 5.0)
         st.write('x: ', xs)
         ys = st.slider(
-            'y', 0.0, 5.0)
+            'Y', 0.0, 5.0, 0.1)
         st.write('y: ', ys)
         scaling(image, xs, ys)
     if ('shear' in Transformation):
