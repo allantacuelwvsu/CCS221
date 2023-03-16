@@ -129,7 +129,9 @@ def main():
     if ('cube' in Transformation):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
-        st.pyplot(fig)
+        with tf.compat.v1.Session() as session:
+            object = session.run(init_cube_)
+            st.pyplot(fig)
     if ('prism' in Transformation):
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
