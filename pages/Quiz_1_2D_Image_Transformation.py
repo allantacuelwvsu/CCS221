@@ -26,6 +26,7 @@ def rotation(img_):
                               [np.sin(angle), np.cos(angle), 0],
                               [0, 0, 1]])
     img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
 
     rotated_img_ = cv2.warpPerspective(img_, m_rotation_, (int(cols), int(rows)))
@@ -39,6 +40,7 @@ def scaling(img_):
                              [0, 1.8, 0],
                              [0, 0, 1]])
     img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
 
     scaled_img_ = cv2.warpPerspective(img_, m_scaling_, (cols*2, rows*2))
@@ -52,6 +54,7 @@ def reflection(img_):
                                 [0, -1, rows],
                                 [0, 0, 1]])
     img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
 
     reflected_img_ = cv2.warpPerspective(img_, m_reflection_, (int(cols), int(rows)))
@@ -65,6 +68,7 @@ def shear(img_):
                                [0, 1, 0],
                                [0, 0, 1]])
     img_ = Image.open(img_)
+    img_ = np.asarray(img_)
     cols, rows = img_.shape[:2]
 
     sheared_img_x = cv2.warpPerspective(img_, m_shearing_x, (int(cols*1.5), int(rows*1.5)))
