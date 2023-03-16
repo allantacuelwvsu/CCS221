@@ -112,7 +112,7 @@ def main():
         st.title("Shear")
         xd = st.slider(
             'X',
-            0.0, 0.1)
+            -1.0, 1.0, 0.0)
         st.write('x', xd)
         shear(image, xd)
     if ('reflection' in Transformation):
