@@ -22,8 +22,8 @@ def translation(img_, xt, yt):
 
 def rotation(img_, xr):
     x = np.radians(10)
-    m_rotation_ = np.float32([[np.cos(angle), -(np.sin(angle)), 0],
-                              [np.sin(angle), np.cos(angle), 0],
+    m_rotation_ = np.float32([[np.cos(xr), -(np.sin(xr)), 0],
+                              [np.sin(xr), np.cos(xr), 0],
                               [0, 0, 1]])
     img_ = Image.open(img_)
     img_ = np.asarray(img_)
@@ -79,7 +79,7 @@ def shear(img_):
 
 def main():
     Transformation = st.multiselect('Choose Transformation Method', ['translation', 'rotation', 'scale', 'shear', 'reflection'])
-    image_upload = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
+    image = st.file_uploader('Upload Image to Use', ['jpg'], accept_multiple_files=False)   
     if ('translation' in Transformation):
         st.title("Translation")
         xt = st.slider(
@@ -90,20 +90,20 @@ def main():
             'y',
             0.0, 500.0)
         st.write('y: ', yt)
-        translation(image_upload, xt, yt)
+        translation(image, xt, yt)
     if ('rotation' in Transformation):
         st.title("Rotation")
         xr = st.slider(
             'Angle',
             0.0, 1000.0)
         st.write('Angle: ', xr)
-        rotation(image_upload, xr)
+        rotation(image, xr)
     if ('scale' in Transformation):
-        scaling(image_upload)
+        scaling(image)
     if ('shear' in Transformation):
-        reflection(image_upload)
+        reflection(image)
     if ('reflection' in Transformation):
-            shear(image_upload)
+            shear(image)
 
 if __name__ == "__main__":
     main()
