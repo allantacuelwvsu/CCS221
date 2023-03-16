@@ -15,7 +15,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
         x3, y3 = y3, x3
     elif y1 > x1:
         x3, y3 = y3, x3
-    elif x1 > y1 and (x1 + y1) > (x2 + y2)
+    elif x1 > y1 and (x1 + y1) > (x2 + y2):
         x3, y3 = x3, y3
      
 
