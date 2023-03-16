@@ -11,7 +11,7 @@ fig = plt.figure()
 
 def _plt_basic_object_(points):
     """Plots a basic object, assuming its convex and not too complex"""
-
+    fig = plt.figure()
     tri = Delaunay(points).convex_hull
 
     fig = plt.figure(figsize=(8, 8))
@@ -126,25 +126,25 @@ def main():
     
     Transformation = st.selectbox('Transformation Type:', ['cube', 'prism', 'rectangle', 'pyramid', 'diamond'])
     
-    if ('cube' in Transformation):
+    if (Transformation == "cube"):
         _cube_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_cube_)
         with tf.compat.v1.Session() as session:
             object = session.run(init_cube_)
             st.pyplot(fig)
-    if ('prism' in Transformation):
+    if (Transformation == "prism"):
         _prism_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_prism_)
         st.pyplot(fig)
-    if ('rectangle' in Transformation):
+    if (Transformation == "rectangle"):
         _rectangle_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_rectangle_) 
         st.pyplot(fig)
-    if ('pyramid' in Transformation):
+    if (Transformation == "pyramid):
         _pyramid_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_pyramid_)  
         st.pyplot(fig)
-    if ('diamond' in Transformation):
+    if (Transformation == "diamond"):
         _diamond_(bottom_lower = (0, 0, 0), side_length = 5)
         _plt_basic_object_(init_diamond_)
         st.pyplot(fig)
