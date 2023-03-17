@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from PIL import Image
 
-st.title("Quiz\t1\nGroup\t8\tBYTE\n2D\tImage"\tTransformation)
+st.title("Quiz\t1\nGroup\t8\tBYTE\n2D\tImage\tTransformation")
 
 fig = plt.figure()
 
