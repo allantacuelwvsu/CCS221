@@ -7,6 +7,8 @@ from scipy.spatial import Delaunay
 import tensorflow as tf
 import streamlit as st
 
+st.title("Activity\t4\nGroup\t8\tBYTE\n3D\tShapes\tand\tTransformation")
+
 def _plt_basic_object_(points):
     """Plots a basic object, assuming its convex and not too complex"""
     fig = plt.figure()
