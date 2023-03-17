@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import random as rndm
 import streamlit as st
 
+st.title("Activity\t2\nGroup\t8\tBYTE\nFloodfill\tAlgorithm")
+
 def isValid(screen, m, n, x, y, prevC, newC):
     if x<0 or x>= m\
        or y<0 or y>= n or\
